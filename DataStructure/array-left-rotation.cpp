@@ -4,18 +4,21 @@ using namespace std;
 
 int main()
 {
-    int n, d;
+    int n, d, i;
     cin >> n;
     cin >> d;
-    int arr[n];
-    for(int i = 0; i < n; i++) cin >> arr[i];
-    for(int j = 0; j < d; j++)
+    int part1[d], part2[n - d];
+    for(i = 0; i < n; i++)
     {
-        int temp = arr[0];
-        for(int i = 0; i < n -1; i++) arr[i] = arr[i+1];
-        arr[n - 1] = temp;
+        if(i < d)
+        {
+            cin >> part1[i];
+        }
+        else cin >> part2[i - d];
     }
-    for(int i = 0; i < n; i++) cout << arr[i] << " ";
+
+    for(i = 0; i < n - d; i++) cout << part2[i] << " ";
+    for(i = 0; i < d; i++) cout << part1[i] << " ";
     cout << endl;
 
     return 0;
